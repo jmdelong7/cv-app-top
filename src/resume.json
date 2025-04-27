@@ -1,0 +1,75 @@
+{
+    "header": {
+        "name": "JOHN SMITH",
+        "email": "john.smith@example.com",
+        "phone": "(555) 123-4567",
+        "location": "Boston, MA",
+        "linkedin": "https://www.linkedin.com/in/johnsmith",
+        "github": "https://github.com/johnsmith",
+        "website": "https://johnsmith.dev"
+    },
+    "workExperience": [
+        {
+            "company": "Global Tech Solutions",
+            "position": "Senior Software Engineer",
+            "location": "Boston, MA",
+            "startDate": "June 2021",
+            "endDate": "Present",
+            "achievements": [
+                "Led development of cloud-based platform serving 50,000+ daily users with 99.9% uptime.",
+                "Architected microservice infrastructure that reduced API response times by 65%.",
+                "Mentored team of 5 junior developers, implementing code review processes that reduced bugs by 40%.",
+                "Optimized database queries resulting in 70% faster load times for critical application features.",
+                "Implemented CI/CD pipeline reducing deployment time from 3 hours to 15 minutes.",
+                "Collaborated with product team to deliver 12 major feature releases ahead of schedule."
+            ]
+        },
+        {
+            "company": "Innovative Startups Inc.",
+            "position": "Full Stack Developer",
+            "location": "Chicago, IL",
+            "startDate": "March 2018",
+            "endDate": "May 2021",
+            "achievements": [
+                "Developed responsive web applications using React and Node.js for clients across 5 industries.",
+                "Created RESTful APIs that processed over 1M requests daily with average response time under 100ms.",
+                "Built automated testing framework that increased code coverage from 65% to 92%.",
+                "Implemented authentication system protecting sensitive data for 100,000+ user accounts."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Massachusetts Institute of Technology",
+            "degree": "Bachelor of Science in Computer Science",
+            "location": "Cambridge, MA",
+            "graduationDate": "May 2018"
+        }
+    ],
+    "skills": {
+        "programming": [
+            "JavaScript",
+            "TypeScript",
+            "Python",
+            "Java",
+            "React",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "PostgreSQL",
+            "Docker"
+        ],
+        "software": [
+            "AWS",
+            "Git",
+            "Jenkins",
+            "Jira",
+            "Figma",
+            "Adobe Creative Suite",
+            "Microsoft Office",
+            "Google Cloud Platform",
+            "Kubernetes",
+            "Terraform"
+        ]
+    }
+}
