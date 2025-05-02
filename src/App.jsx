@@ -1,18 +1,28 @@
-import { useState } from 'react';
-import Section from './components/Section';
-import Header from './components/Header1';
-import './App.css';
+import React from "react";
+import {
+    NameField,
+    ContactField,
+    TitleField,
+} from "./components/EditableField/index";
+import "./styles/Header.css";
 
 function App() {
-  return (
-    <>
-      <Header></Header>
-      <h1>Hello World</h1>
-      <Section title="Section 1">
-        <p>This is the first section</p>
-      </Section>
-    </>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Editable Field Demo</h1>
+                <div>
+                    <NameField value="John Doe" />
+                </div>
+                <div>
+                    <ContactField value="john.doe@example.com" />
+                </div>
+                <div>
+                    <TitleField value="Software Engineer" />
+                </div>
+            </header>
+        </div>
+    );
 }
 
 export default App;
