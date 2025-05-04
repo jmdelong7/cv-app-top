@@ -1,28 +1,12 @@
-import React from "react";
-import {
-    NameField,
-    ContactField,
-    TitleField,
-} from "./components/EditableField/index";
-import "./styles/Header.css";
+import React from 'react'
+import ResumeForm from './components/ResumeForm'
 
 function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Editable Field Demo</h1>
-                <div>
-                    <NameField value="John Doe" />
-                </div>
-                <div>
-                    <ContactField value="john.doe@example.com" />
-                </div>
-                <div>
-                    <TitleField value="Software Engineer" />
-                </div>
-            </header>
-        </div>
-    );
+  return (
+    <div className="app-container">
+      <ResumeForm />
+    </div>
+  )
 }
 
-export default App;
+export default App
