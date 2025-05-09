@@ -1,15 +1,16 @@
 import React from 'react'
-import AddFieldBtn from './AddFieldBtn'
+import '../styles/InputFieldShell.css'
 
-function InputFieldShell({ removeBtn, field, addBtn }) {
+export default function InputFieldShell({ value, onChange, onAdd, onRemove }) {
     return (
-        <div>
-            <label htmlFor={field}>{field}</label>
-            <input type="text" id={field} />
-            {removeBtn && <button onClick={removeBtn}>Remove</button>}
-            {addBtn && <AddFieldBtn onClick={addBtn} />}
+        <div className="input-field-shell">
+            <input
+                type="text"
+                value={value}
+                onChange={e => onChange(e.target.value)}
+            />
+            <button onClick={onRemove}>–</button>
+            <button onClick={onAdd}>+</button>
         </div>
     )
 }
-
-export default InputFieldShell

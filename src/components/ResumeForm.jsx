@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import InputFieldShell from './InputFieldShell'
+import SubHeader from './SubHeader'
 
 function ResumeForm() {
   const [fields, setFields] = useState([''])
@@ -29,6 +30,7 @@ function ResumeForm() {
   return (
     <form className="resume-form" onSubmit={handleSubmit}>
       <Header />
+      <SubHeader />
       <div className="form-sections">
         {fields.map((value, idx) => (
           <InputFieldShell
