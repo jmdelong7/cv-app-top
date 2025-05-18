@@ -37,6 +37,7 @@ function ResumeDisplay({ resumeData }) {
       <header className="resume-header">
         <h1 className="resume-name">{resumeData.name || 'Your Name'}</h1>
         <Subheadings subheadings={resumeData.subheadings} />
+        <h2>WORK EXPERIENCE</h2>
         <hr />
       </header>
     </div>

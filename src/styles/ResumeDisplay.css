@@ -12,14 +12,14 @@
 }
 
 .resume-name {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
   color: #000000;
   font-weight: 700;
 }
 
 .resume-subheadings {
-  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
