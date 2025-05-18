@@ -1,9 +1,0 @@
-.input-field-shell {
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-}
-
-.input-field-shell input {
-    flex: 1;
-}

@@ -1,0 +1,54 @@
+.resume-display {
+  flex: 1;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.resume-header {
+  margin-bottom: 2rem;
+}
+
+.resume-name {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #000000;
+  font-weight: 700;
+}
+
+.resume-subheadings {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subheading-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subheading-item:not(:last-child)::after {
+  content: '|';
+  color: #94a3b8;
+  margin-left: 0.5rem;
+}
+
+.subheading-name {
+  font-size: 1.1rem;
+}
+
+.subheading-name a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.subheading-name a:hover {
+  text-decoration: underline;
+  color: #1d4ed8;
+}

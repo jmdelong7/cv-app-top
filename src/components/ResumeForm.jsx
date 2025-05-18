@@ -1,49 +1,55 @@
-import React, { useState } from 'react'
-import Header from './Header'
-import InputFieldShell from './InputFieldShell'
-import SubHeader from './SubHeader'
+import React from 'react';
+import SubheadingForm from './SubheadingForm';
+import '../styles/ResumeForm.css';
 
-function ResumeForm() {
-  const [fields, setFields] = useState([''])
+function ResumeForm({ resumeData, updateResumeData }) {
+  const handleNameChange = (e) => {
+    updateResumeData('name', e.target.value);
+  };
 
-  const addField = idx => {
-    const newFields = [...fields]
-    newFields.splice(idx + 1, 0, '')
-    setFields(newFields)
-  }
+  const handleAddSubheading = (subheading) => {
+    const updatedSubheadings = [...(resumeData.subheadings || []), subheading];
+    updateResumeData('subheadings', updatedSubheadings);
+  };
 
-  const removeField = idx => {
-    if (fields.length === 1) return
-    setFields(fields.filter((_, i) => i !== idx))
-  }
+  const handleUpdateSubheading = (index, updatedSubheading) => {
+    const updatedSubheadings = [...resumeData.subheadings];
+    updatedSubheadings[index] = updatedSubheading;
+    updateResumeData('subheadings', updatedSubheadings);
+  };
 
-  const updateField = (idx, value) => {
-    const newFields = [...fields]
-    newFields[idx] = value
-    setFields(newFields)
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-  }
+  const handleRemoveSubheading = (index) => {
+    const updatedSubheadings = resumeData.subheadings.filter((_, i) => i !== index);
+    updateResumeData('subheadings', updatedSubheadings);
+  };
 
   return (
-    <form className="resume-form" onSubmit={handleSubmit}>
-      <Header />
-      <SubHeader />
-      <div className="form-sections">
-        {fields.map((value, idx) => (
-          <InputFieldShell
-            key={idx}
-            value={value}
-            onChange={v => updateField(idx, v)}
-            onAdd={() => addField(idx)}
-            onRemove={() => removeField(idx)}
-          />
-        ))}
+    <div className="resume-form">
+      <h2>Resume Builder</h2>
+      
+      <div className="form-section">
+        <h3>Name</h3>
+        <input
+          type="text"
+          value={resumeData.name}
+          onChange={handleNameChange}
+          placeholder="Your Name"
+          className="form-input"
+        />
       </div>
-    </form>
-  )
+
+      <div className="form-section">
+        <h3>Contact Information</h3>
+        <SubheadingForm
+          subheadings={resumeData.subheadings || []}
+          onAdd={handleAddSubheading}
+          onEdit={handleUpdateSubheading}
+          onRemove={handleRemoveSubheading}
+        />
+        <br />
+      </div>
+    </div>
+  );
 }
 
-export default ResumeForm
+export default ResumeForm;
