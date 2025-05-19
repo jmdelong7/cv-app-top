@@ -17,6 +17,10 @@ body {
   display: flex;
   min-height: 100vh;
   background-color: #f8fafc;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .form-container {

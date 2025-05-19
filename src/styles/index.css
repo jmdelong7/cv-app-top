@@ -5,12 +5,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overflow-y: scroll; /* Always show vertical scrollbar to prevent layout shifts */
+}
+
 .app-container {
   display: flex;
-  justify-content: center;
   min-height: 100vh;
-  padding: 20px;
   box-sizing: border-box;
+  padding: 0;
 }
 
 hr {

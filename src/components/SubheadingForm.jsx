@@ -50,7 +50,7 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="phone, email, website, etc."
+            placeholder="phone, email, etc."
             className="form-input"
             required
           />
@@ -62,8 +62,10 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
             placeholder="URL (e.g., example.com)"
             className="form-input"
           />
-          <button type="submit" className="btn btn-primary">
-            {editingIndex !== null ? 'Update' : 'Add'}
+        </div>
+        <div className="form-row">
+          <button type="submit" className="btn btn-primary full-width">
+            {editingIndex !== null ? 'Update' : 'Add Contact Info'}
           </button>
           {editingIndex !== null && (
             <button 
@@ -79,12 +81,12 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
 
       <div className="subheading-list">
         {subheadings.map((sub, index) => (
-          <div key={index} className="subheading-item">
+          <div key={index} className="subheading-form-item">
             <span>
-              {sub.name} 
+              {sub.name}
               {sub.url && (
-                <a href={sub.url} target="_blank" rel="noopener noreferrer">
-                  (link)
+                <a href={sub.url} target="_blank" rel="noopener noreferrer" className="subheading-link">
+                  {' '} (link)
                 </a>
               )}
             </span>
