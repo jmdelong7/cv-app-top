@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import SubheadingForm from './SubheadingForm';
 import WorkExperienceForm from './WorkExperienceForm';
+import ExperienceBulletForm from './ExperienceBulletForm';
 import CollapsibleSection from './CollapsibleSection';
 import '../styles/ResumeForm.css';
 
 function ResumeForm({ resumeData, updateResumeData }) {
   // Initialize work experiences from resumeData or empty array
-  const [workExperiences, setWorkExperiences] = useState(resumeData.workExperiences || []);
+  const [workExperiences, setWorkExperiences] = useState(
+    resumeData.workExperiences || []
+  );
   const handleNameChange = (e) => {
     updateResumeData('name', e.target.value);
   };
 
   const handleAddSubheading = (subheading) => {
     const updatedSubheadings = [...(resumeData.subheadings || []), subheading];
-    updateResumeData('subheadings',  updatedSubheadings);
+    updateResumeData('subheadings', updatedSubheadings);
   };
 
   const handleUpdateSubheading = (index, updatedSubheading) => {
@@ -23,19 +26,28 @@ function ResumeForm({ resumeData, updateResumeData }) {
   };
 
   const handleRemoveSubheading = (index) => {
-    const updatedSubheadings = resumeData.subheadings.filter((_, i) => i !== index);
+    const updatedSubheadings = resumeData.subheadings.filter(
+      (_, i) => i !== index
+    );
     updateResumeData('subheadings', updatedSubheadings);
   };
 
   // Work Experience Handlers
   const handleAddExperience = (newExperience) => {
-    const updatedExperiences = [...workExperiences, newExperience];
+    // Initialize with empty bullets array
+    const experienceWithBullets = {
+      ...newExperience,
+      bullets: [],
+    };
+    const updatedExperiences = [...workExperiences, experienceWithBullets];
     setWorkExperiences(updatedExperiences);
     updateResumeData('workExperiences', updatedExperiences);
   };
 
   const handleUpdateExperience = (index, updatedExperience) => {
     const updatedExperiences = [...workExperiences];
+    // Preserve existing bullets if they exist
+    updatedExperience.bullets = updatedExperiences[index].bullets || [];
     updatedExperiences[index] = updatedExperience;
     setWorkExperiences(updatedExperiences);
     updateResumeData('workExperiences', updatedExperiences);
@@ -47,10 +59,28 @@ function ResumeForm({ resumeData, updateResumeData }) {
     updateResumeData('workExperiences', updatedExperiences);
   };
 
+  // Bullet point handlers
+  const handleAddBullet = (expIndex, bulletText) => {
+    const updatedExperiences = [...workExperiences];
+    if (!updatedExperiences[expIndex].bullets) {
+      updatedExperiences[expIndex].bullets = [];
+    }
+    updatedExperiences[expIndex].bullets.push(bulletText);
+    setWorkExperiences(updatedExperiences);
+    updateResumeData('workExperiences', updatedExperiences);
+  };
+
+  const handleRemoveBullet = (expIndex, bulletIndex) => {
+    const updatedExperiences = [...workExperiences];
+    updatedExperiences[expIndex].bullets = updatedExperiences[
+      expIndex
+    ].bullets.filter((_, i) => i !== bulletIndex);
+    setWorkExperiences(updatedExperiences);
+    updateResumeData('workExperiences', updatedExperiences);
+  };
+
   return (
     <div className="resume-form">
-      <h2>Resume Builder</h2>
-      
       <CollapsibleSection title="Name">
         <div className="form-section">
           <input
@@ -81,6 +111,16 @@ function ResumeForm({ resumeData, updateResumeData }) {
             onAdd={handleAddExperience}
             onEdit={handleUpdateExperience}
             onRemove={handleRemoveExperience}
+          />
+        </div>
+      </CollapsibleSection>
+
+      <CollapsibleSection title="Experience Bullet Points">
+        <div className="form-section">
+          <ExperienceBulletForm
+            experiences={workExperiences}
+            onAddBullet={handleAddBullet}
+            onRemoveBullet={handleRemoveBullet}
           />
         </div>
       </CollapsibleSection>

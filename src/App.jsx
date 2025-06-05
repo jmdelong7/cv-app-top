@@ -8,6 +8,7 @@ function App() {
     name: '',
     subheadings: []
   })
+  const [isFormVisible, setIsFormVisible] = useState(true)
 
   const updateResumeData = (field, value) => {
     setResumeData(prev => ({
@@ -15,16 +16,42 @@ function App() {
       [field]: value
     }))
   }
+  
+  const toggleFormVisibility = () => {
+    setIsFormVisible(!isFormVisible)
+  }
 
   return (
     <div className="app-container">
-      <div className="form-container">
-        <ResumeForm 
-          resumeData={resumeData}
-          updateResumeData={updateResumeData}
-        />
+      <div className={`form-container ${!isFormVisible ? 'collapsed' : ''}`}>
+        {isFormVisible ? (
+          <>
+            <div className="form-header">
+              <h2>Resume Builder</h2>
+              <button 
+                className="toggle-form-btn" 
+                onClick={toggleFormVisibility}
+                aria-label="Hide form"
+              >
+                ◀
+              </button>
+            </div>
+            <ResumeForm 
+              resumeData={resumeData}
+              updateResumeData={updateResumeData}
+            />
+          </>
+        ) : (
+          <button 
+            className="toggle-form-btn expand-btn" 
+            onClick={toggleFormVisibility}
+            aria-label="Show form"
+          >
+            ▶
+          </button>
+        )}
       </div>
-      <div className="resume-container">
+      <div className={`resume-container ${!isFormVisible ? 'expanded' : ''}`}>
         <ResumeDisplay resumeData={resumeData} />
       </div>
     </div>

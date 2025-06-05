@@ -64,17 +64,23 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
           />
         </div>
         <div className="form-row">
-          <button type="submit" className="btn btn-primary full-width">
-            {editingIndex !== null ? 'Update' : 'Add Contact Info'}
-          </button>
-          {editingIndex !== null && (
-            <button 
-              type="button" 
-              className="btn btn-secondary"
-              onClick={handleCancel}
-            >
-              Cancel
+          {editingIndex === null ? (
+            <button type="submit" className="btn btn-primary full-width">
+              Add Contact Info
             </button>
+          ) : (
+            <>
+              <button type="submit" className="btn btn-primary">
+                Update
+              </button>
+              <button 
+                type="button" 
+                className="btn btn-secondary"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+            </>
           )}
         </div>
       </form>

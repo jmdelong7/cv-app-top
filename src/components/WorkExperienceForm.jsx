@@ -95,24 +95,29 @@ function WorkExperienceForm({ experiences = [], onAdd, onEdit, onRemove }) {
           />
         </div>
         <div className="form-row">
-          <button type="submit" className="btn btn-primary full-width">
-            {editingIndex !== null ? 'Update Experience' : 'Add Experience'}
-          </button>
-          {editingIndex !== null && (
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={handleCancel}
-            >
-              Cancel
+          {editingIndex === null ? (
+            <button type="submit" className="btn btn-primary full-width">
+              Add Experience
             </button>
+          ) : (
+            <>
+              <button type="submit" className="btn btn-primary">
+                Update Experience
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+            </>
           )}
         </div>
       </form>
 
       {experiences.length > 0 && (
         <div className="experience-list">
-          <h4>Work Experience</h4>
           <ul>
             {experiences.map((exp, index) => (
               <li key={index} className="experience-item">

@@ -1,14 +1,37 @@
 .resume-display {
   flex: 1;
-  padding: 2rem;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  min-height: 100%;
-  overflow-y: auto;
-  max-width: 800px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+  transition: max-width 0.3s ease;
+  max-width: 8.5in; /* Standard letter width */
+  min-height: 11in; /* Standard letter height */
+  padding: 0.5in; /* Reduced from 1 inch margins */
+}
+
+/* Resume Container Styles */
+.resume-container {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  max-width: 8.5in; /* Standard letter width */
+  min-height: 12in; /* Standard letter height */
+}
+
+.resume-container.expanded {
+  flex: 2;
+}
+
+/* Standard letter size when form is collapsed */
+.resume-container.expanded .resume-display {
+  max-width: 8.5in; /* Standard letter width */
+  min-height: 11in; /* Standard letter height */
+  padding: 1in; /* Standard 1 inch margins */
 }
 
 .resume-header {
@@ -38,12 +61,13 @@
 
 .subheading-item:not(:last-child)::after {
   content: '|';
-  color: #94a3b8;
+  color: #000000;
   margin-left: 0.5rem;
 }
 
 .subheading-name {
   font-size: 1.1rem;
+  color: #000000;
 }
 
 .subheading-name a {
@@ -55,4 +79,78 @@
 .subheading-name a:hover {
   text-decoration: underline;
   color: #1d4ed8;
+}
+
+/* Resume sections */
+.resume-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.resume-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.resume-section hr {
+  border: none;
+  height: 1px;
+  background-color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+/* Work Experience */
+.work-experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.work-experience-item {
+  margin-bottom: 1.5rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.organization,
+.date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.experience-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.role,
+.location {
+  font-style: italic;
+  margin: 0;
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* Experience Bullets */
+.experience-bullets-list {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.experience-bullet {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #000000;
 }
