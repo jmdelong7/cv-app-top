@@ -98,27 +98,9 @@
   margin-bottom: 0.5rem;
 }
 
-.subheading-item a,
-.subheading-link {
-  color: #3b82f6;
-  text-decoration: none;
-  font-size: 0.9em;
-  margin-left: 0.25em;
-}
-
-.subheading-link {
-  display: inline-block;
-  margin-left: 0.5em;
-}
-
-.subheading-item a:hover {
-  text-decoration: underline;
-}
-
 .subheading-actions {
   display: flex;
   gap: 0.25rem;
-  margin-left: 0.25rem;
 }
 
 .btn-icon {
