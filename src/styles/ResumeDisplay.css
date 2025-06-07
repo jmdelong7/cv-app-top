@@ -27,13 +27,6 @@
   flex: 2;
 }
 
-/* Standard letter size when form is collapsed */
-.resume-container.expanded .resume-display {
-  max-width: 8.5in; /* Standard letter width */
-  min-height: 11in; /* Standard letter height */
-  padding: 1in; /* Standard 1 inch margins */
-}
-
 .resume-header {
   margin-bottom: 1.25rem;
 }
@@ -154,4 +147,45 @@
   font-size: 1rem;
   line-height: 1.5;
   color: #000000;
+}
+
+/* Education Section */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0;
+}
+
+.university,
+.date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.education-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0;
+}
+
+.degree,
+.location {
+  font-style: italic;
+  margin: 0;
+  color: #000000;
+  font-size: 1rem;
 }

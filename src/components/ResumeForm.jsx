@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SubheadingForm from './SubheadingForm';
 import WorkExperienceForm from './WorkExperienceForm';
+import EducationForm from './EducationForm';
 import ExperienceBulletForm from './ExperienceBulletForm';
 import CollapsibleSection from './CollapsibleSection';
 import '../styles/ResumeForm.css';
@@ -10,6 +11,10 @@ function ResumeForm({ resumeData, updateResumeData }) {
   const [workExperiences, setWorkExperiences] = useState(
     resumeData.workExperiences || []
   );
+
+  // Initialize education entries from resumeData or empty array
+  const [educations, setEducations] = useState(resumeData.educations || []);
+
   const handleNameChange = (e) => {
     updateResumeData('name', e.target.value);
   };
@@ -57,6 +62,26 @@ function ResumeForm({ resumeData, updateResumeData }) {
     const updatedExperiences = workExperiences.filter((_, i) => i !== index);
     setWorkExperiences(updatedExperiences);
     updateResumeData('workExperiences', updatedExperiences);
+  };
+
+  // Education Handlers
+  const handleAddEducation = (newEducation) => {
+    const updatedEducations = [...educations, newEducation];
+    setEducations(updatedEducations);
+    updateResumeData('educations', updatedEducations);
+  };
+
+  const handleUpdateEducation = (index, updatedEducation) => {
+    const updatedEducations = [...educations];
+    updatedEducations[index] = updatedEducation;
+    setEducations(updatedEducations);
+    updateResumeData('educations', updatedEducations);
+  };
+
+  const handleRemoveEducation = (index) => {
+    const updatedEducations = educations.filter((_, i) => i !== index);
+    setEducations(updatedEducations);
+    updateResumeData('educations', updatedEducations);
   };
 
   // Bullet point handlers
@@ -115,12 +140,23 @@ function ResumeForm({ resumeData, updateResumeData }) {
         </div>
       </CollapsibleSection>
 
-      <CollapsibleSection title="Experience Bullet Points">
+      <CollapsibleSection title="Work Experience Bullets">
         <div className="form-section">
           <ExperienceBulletForm
             experiences={workExperiences}
             onAddBullet={handleAddBullet}
             onRemoveBullet={handleRemoveBullet}
+          />
+        </div>
+      </CollapsibleSection>
+
+      <CollapsibleSection title="Education">
+        <div className="form-section">
+          <EducationForm
+            educations={educations}
+            onAdd={handleAddEducation}
+            onEdit={handleUpdateEducation}
+            onRemove={handleRemoveEducation}
           />
         </div>
       </CollapsibleSection>
