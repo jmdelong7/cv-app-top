@@ -8,7 +8,7 @@
   transition: max-width 0.3s ease;
   max-width: 8.5in; /* Standard letter width */
   min-height: 11in; /* Standard letter height */
-  padding: 0.5in; /* Reduced from 1 inch margins */
+  padding: 0.3in; /* Reduced from 1 inch margins */
 }
 
 /* Resume Container Styles */
@@ -32,7 +32,7 @@
 }
 
 .resume-name {
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin: 0;
   color: #000000;
   font-weight: 700;
@@ -43,19 +43,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  line-height: 1;
+  gap: 0.25rem;
 }
 
 .subheading-item {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.subheading-item:not(:last-child)::after {
-  content: '|';
-  color: #000000;
-  margin-left: 0.5rem;
 }
 
 .subheading-name {
@@ -64,6 +57,7 @@
 }
 
 .subheading-name a {
+  margin: none;
   color: #2563eb;
   text-decoration: none;
   transition: color 0.2s;
@@ -74,17 +68,21 @@
   color: #1d4ed8;
 }
 
+.subheading-item:not(:last-child)::after {
+  content: '|';
+  color: #000000;
+  margin-left: 0.25rem;
+}
+
 /* Resume sections */
 .resume-section {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin: none;
 }
 
 .resume-section h2 {
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
   color: #000000;
 }
 
@@ -92,7 +90,7 @@
   border: none;
   height: 1px;
   background-color: #000000;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 /* Work Experience */
@@ -188,4 +186,17 @@
   margin: 0;
   color: #000000;
   font-size: 1rem;
+}
+
+/* Education Bullets */
+.education-bullets-list {
+  margin-top: 0.56rem;
+  padding-left: 1.25rem;
+}
+
+.education-bullet {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000;
 }

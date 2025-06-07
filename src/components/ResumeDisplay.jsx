@@ -67,6 +67,16 @@ const Education = ({ education }) => {
         <p className="degree">{education.degree}</p>
         <p className="location">{education.location}</p>
       </div>
+
+      {education.bullets && education.bullets.length > 0 && (
+        <ul className="education-bullets-list">
+          {education.bullets.map((bullet, index) => (
+            <li key={index} className="education-bullet">
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

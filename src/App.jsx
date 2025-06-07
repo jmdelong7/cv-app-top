@@ -1,25 +1,23 @@
-import React, { useState } from 'react'
-import ResumeForm from './components/ResumeForm'
-import ResumeDisplay from './components/ResumeDisplay'
-import './App.css'
+import React, { useState } from 'react';
+import ResumeForm from './components/ResumeForm';
+import ResumeDisplay from './components/ResumeDisplay';
+import dummyData from './dummyData.json';
+import './App.css';
 
 function App() {
-  const [resumeData, setResumeData] = useState({
-    name: '',
-    subheadings: []
-  })
-  const [isFormVisible, setIsFormVisible] = useState(true)
+  const [resumeData, setResumeData] = useState(dummyData);
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   const updateResumeData = (field, value) => {
-    setResumeData(prev => ({
+    setResumeData((prev) => ({
       ...prev,
-      [field]: value
-    }))
-  }
-  
+      [field]: value,
+    }));
+  };
+
   const toggleFormVisibility = () => {
-    setIsFormVisible(!isFormVisible)
-  }
+    setIsFormVisible(!isFormVisible);
+  };
 
   return (
     <div className="app-container">
@@ -28,22 +26,22 @@ function App() {
           <>
             <div className="form-header">
               <h2>Resume Builder</h2>
-              <button 
-                className="toggle-form-btn" 
+              <button
+                className="toggle-form-btn"
                 onClick={toggleFormVisibility}
                 aria-label="Hide form"
               >
                 ◀
               </button>
             </div>
-            <ResumeForm 
+            <ResumeForm
               resumeData={resumeData}
               updateResumeData={updateResumeData}
             />
           </>
         ) : (
-          <button 
-            className="toggle-form-btn expand-btn" 
+          <button
+            className="toggle-form-btn expand-btn"
             onClick={toggleFormVisibility}
             aria-label="Show form"
           >
@@ -55,7 +53,7 @@ function App() {
         <ResumeDisplay resumeData={resumeData} />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

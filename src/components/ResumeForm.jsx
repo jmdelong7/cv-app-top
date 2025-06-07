@@ -3,6 +3,7 @@ import SubheadingForm from './SubheadingForm';
 import WorkExperienceForm from './WorkExperienceForm';
 import EducationForm from './EducationForm';
 import ExperienceBulletForm from './ExperienceBulletForm';
+import EducationBulletForm from './EducationBulletForm';
 import CollapsibleSection from './CollapsibleSection';
 import '../styles/ResumeForm.css';
 
@@ -66,13 +67,20 @@ function ResumeForm({ resumeData, updateResumeData }) {
 
   // Education Handlers
   const handleAddEducation = (newEducation) => {
-    const updatedEducations = [...educations, newEducation];
+    // Initialize with empty bullets array
+    const educationWithBullets = {
+      ...newEducation,
+      bullets: [],
+    };
+    const updatedEducations = [...educations, educationWithBullets];
     setEducations(updatedEducations);
     updateResumeData('educations', updatedEducations);
   };
 
   const handleUpdateEducation = (index, updatedEducation) => {
     const updatedEducations = [...educations];
+    // Preserve existing bullets if they exist
+    updatedEducation.bullets = updatedEducations[index].bullets || [];
     updatedEducations[index] = updatedEducation;
     setEducations(updatedEducations);
     updateResumeData('educations', updatedEducations);
@@ -102,6 +110,26 @@ function ResumeForm({ resumeData, updateResumeData }) {
     ].bullets.filter((_, i) => i !== bulletIndex);
     setWorkExperiences(updatedExperiences);
     updateResumeData('workExperiences', updatedExperiences);
+  };
+
+  // Education Bullet point handlers
+  const handleAddEducationBullet = (eduIndex, bulletText) => {
+    const updatedEducations = [...educations];
+    if (!updatedEducations[eduIndex].bullets) {
+      updatedEducations[eduIndex].bullets = [];
+    }
+    updatedEducations[eduIndex].bullets.push(bulletText);
+    setEducations(updatedEducations);
+    updateResumeData('educations', updatedEducations);
+  };
+
+  const handleRemoveEducationBullet = (eduIndex, bulletIndex) => {
+    const updatedEducations = [...educations];
+    updatedEducations[eduIndex].bullets = updatedEducations[
+      eduIndex
+    ].bullets.filter((_, i) => i !== bulletIndex);
+    setEducations(updatedEducations);
+    updateResumeData('educations', updatedEducations);
   };
 
   return (
@@ -157,6 +185,16 @@ function ResumeForm({ resumeData, updateResumeData }) {
             onAdd={handleAddEducation}
             onEdit={handleUpdateEducation}
             onRemove={handleRemoveEducation}
+          />
+        </div>
+      </CollapsibleSection>
+
+      <CollapsibleSection title="Education Bullets">
+        <div className="form-section">
+          <EducationBulletForm
+            educations={educations}
+            onAddBullet={handleAddEducationBullet}
+            onRemoveBullet={handleRemoveEducationBullet}
           />
         </div>
       </CollapsibleSection>

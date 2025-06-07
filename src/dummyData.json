@@ -1,0 +1,45 @@
+{
+  "name": "John Smith",
+  "subheadings": [
+    {
+      "name": "john.smith@example.com",
+      "url": "mailto:john.smith@example.com"
+    },
+    {
+      "name": "(555) 123-4567",
+      "url": ""
+    },
+    {
+      "name": "San Francisco, CA",
+      "url": ""
+    },
+    {
+      "name": "linkedin.com/in/johnsmith",
+      "url": "https://linkedin.com/in/johnsmith"
+    }
+  ],
+  "workExperiences": [
+    {
+      "organization": "Tech Innovations Inc.",
+      "date": "2020 - Present",
+      "role": "Senior Software Engineer",
+      "location": "San Francisco, CA",
+      "bullets": [
+        "Led the development of a cloud-based application that increased customer engagement by 35% and reduced operational costs by 20%.",
+        "Implemented CI/CD pipeline reducing deployment time from 2 days to 30 minutes while improving code quality through automated testing."
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "university": "Stanford University",
+      "date": "2016 - 2020",
+      "degree": "Bachelor of Science in Computer Science",
+      "location": "Stanford, CA",
+      "bullets": [
+        "Graduated with honors, GPA 3.8/4.0, Dean's List all semesters.",
+        "Completed senior thesis on machine learning applications in healthcare, published in ACM conference proceedings."
+      ]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -17,9 +17,10 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
     // Format URL if needed
     const formattedData = {
       ...formData,
-      url: formData.url && !formData.url.match(/^https?:\/\//)
-        ? `https://${formData.url}`
-        : formData.url
+      url:
+        formData.url && !formData.url.match(/^https?:\/\//)
+          ? `https://${formData.url}`
+          : formData.url,
     };
 
     if (editingIndex !== null) {
@@ -73,8 +74,8 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
               <button type="submit" className="btn btn-primary">
                 Update
               </button>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-secondary"
                 onClick={handleCancel}
               >
@@ -91,13 +92,19 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
             <span>
               {sub.name}
               {sub.url && (
-                <a href={sub.url} target="_blank" rel="noopener noreferrer" className="subheading-link">
-                  {' '} (link)
+                <a
+                  href={sub.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="subheading-link"
+                >
+                  {' '}
+                  (link)
                 </a>
               )}
             </span>
             <div className="subheading-actions">
-              <button 
+              <button
                 onClick={() => handleEdit(index)}
                 className="btn-icon"
                 type="button"
@@ -105,7 +112,7 @@ function SubheadingForm({ subheadings, onAdd, onEdit, onRemove }) {
               >
                 ✏️
               </button>
-              <button 
+              <button
                 onClick={() => onRemove(index)}
                 className="btn-icon"
                 type="button"
