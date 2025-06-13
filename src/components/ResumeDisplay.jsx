@@ -58,7 +58,7 @@ const WorkExperience = ({ experience }) => {
 
 const Education = ({ education }) => {
   return (
-    <div className="education-item">
+    <div className="education-display-item">
       <div className="education-header">
         <h3 className="university">{education.university}</h3>
         <h3 className="date">{education.date}</h3>
@@ -78,6 +78,25 @@ const Education = ({ education }) => {
         </ul>
       )}
     </div>
+  );
+};
+
+const Skills = ({ skills }) => {
+  if (!skills?.length) return null;
+
+  return (
+    <section className="resume-section">
+      <h2>SKILLS</h2>
+      <hr />
+      <div className="skills-list">
+        {skills.map((skillGroup, index) => (
+          <p key={index} className="skills-item">
+            <span className="skills-header">{skillGroup.header}:</span>{' '}
+            {skillGroup.skills.join(', ')}
+          </p>
+        ))}
+      </div>
+    </section>
   );
 };
 
@@ -112,6 +131,9 @@ function ResumeDisplay({ resumeData }) {
           </div>
         </section>
       )}
+
+      {/* Skills Section */}
+      <Skills skills={resumeData.skills} />
     </div>
   );
 }

@@ -10,25 +10,31 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.education-list ul {
-  display: flex;
-  flex-direction: column;
+.education-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .education-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  list-style: none;
 }
 
 .education-header strong {
   font-size: 1.0625rem;
   color: #111827;
+  list-style: none;
 }
 
 .education-header span {
   color: #6b7280;
   font-size: 0.9375rem;
+  list-style: none;
 }
 
 .education-details {
@@ -38,11 +44,33 @@
   margin-bottom: 0.5rem;
 }
 
+.education-item::marker {
+  content: ''; /* Hides the bullet */
+  color: transparent; /* Alternative way to hide */
+}
+
 .education-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
   margin-top: 0.75rem;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn-icon:hover {
+  opacity: 1;
+  background-color: #f3f4f6;
 }
 
 /* Responsive adjustments */

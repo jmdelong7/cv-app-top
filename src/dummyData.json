@@ -28,6 +28,28 @@
         "Led the development of a cloud-based application that increased customer engagement by 35% and reduced operational costs by 20%.",
         "Implemented CI/CD pipeline reducing deployment time from 2 days to 30 minutes while improving code quality through automated testing."
       ]
+    },
+    {
+      "organization": "DataSphere Solutions",
+      "date": "2018 - 2020",
+      "role": "Software Engineer",
+      "location": "San Jose, CA",
+      "bullets": [
+        "Developed and maintained RESTful APIs serving over 500,000 daily users with 99.9% uptime.",
+        "Optimized database queries resulting in a 40% reduction in page load times across the platform.",
+        "Collaborated with UX designers to implement responsive UI components that improved mobile user retention by 25%."
+      ]
+    },
+    {
+      "organization": "StartUp Ventures",
+      "date": "2016 - 2018",
+      "role": "Junior Developer",
+      "location": "Palo Alto, CA",
+      "bullets": [
+        "Built and deployed front-end features using React and Redux for an e-commerce platform serving 10,000+ daily visitors.",
+        "Participated in agile development process, contributing to sprint planning and daily stand-ups.",
+        "Reduced bundle size by 30% through code splitting and lazy loading techniques, improving initial page load performance."
+      ]
     }
   ],
   "educations": [
@@ -39,6 +61,33 @@
       "bullets": [
         "Graduated with honors, GPA 3.8/4.0, Dean's List all semesters.",
         "Completed senior thesis on machine learning applications in healthcare, published in ACM conference proceedings."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "header": "Programming Languages",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "Java",
+        "SQL",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "header": "Technologies & Frameworks",
+      "skills": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Git",
+        "CI/CD"
       ]
     }
   ]

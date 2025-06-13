@@ -5,6 +5,7 @@ import EducationForm from './EducationForm';
 import ExperienceBulletForm from './ExperienceBulletForm';
 import EducationBulletForm from './EducationBulletForm';
 import CollapsibleSection from './CollapsibleSection';
+import SkillsForm from './SkillsForm';
 import '../styles/ResumeForm.css';
 
 function ResumeForm({ resumeData, updateResumeData }) {
@@ -15,6 +16,9 @@ function ResumeForm({ resumeData, updateResumeData }) {
 
   // Initialize education entries from resumeData or empty array
   const [educations, setEducations] = useState(resumeData.educations || []);
+
+  // Initialize skills from resumeData or empty array
+  const [skills, setSkills] = useState(resumeData.skills || []);
 
   const handleNameChange = (e) => {
     updateResumeData('name', e.target.value);
@@ -132,6 +136,34 @@ function ResumeForm({ resumeData, updateResumeData }) {
     updateResumeData('educations', updatedEducations);
   };
 
+  // Skills Handlers
+  const handleAddSkill = (newSkillGroup) => {
+    const updatedSkills = [...skills, newSkillGroup];
+    setSkills(updatedSkills);
+    updateResumeData('skills', updatedSkills);
+  };
+
+  const handleRemoveSkill = (index) => {
+    const updatedSkills = skills.filter((_, i) => i !== index);
+    setSkills(updatedSkills);
+    updateResumeData('skills', updatedSkills);
+  };
+
+  // Clear all data handler
+  const handleClearAllData = () => {
+    // Reset all local state
+    setWorkExperiences([]);
+    setEducations([]);
+    setSkills([]);
+
+    // Reset all resume data
+    updateResumeData('name', '');
+    updateResumeData('subheadings', []);
+    updateResumeData('workExperiences', []);
+    updateResumeData('educations', []);
+    updateResumeData('skills', []);
+  };
+
   return (
     <div className="resume-form">
       <CollapsibleSection title="Name">
@@ -198,6 +230,26 @@ function ResumeForm({ resumeData, updateResumeData }) {
           />
         </div>
       </CollapsibleSection>
+
+      <CollapsibleSection title="Skills">
+        <div className="form-section">
+          <SkillsForm
+            skills={skills}
+            onAddSkill={handleAddSkill}
+            onRemoveSkill={handleRemoveSkill}
+          />
+        </div>
+      </CollapsibleSection>
+
+      <div className="clear-data-container">
+        <button
+          onClick={handleClearAllData}
+          className="clear-data-button"
+          aria-label="Clear all resume data"
+        >
+          Clear All Data
+        </button>
+      </div>
     </div>
   );
 }

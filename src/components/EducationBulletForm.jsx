@@ -34,7 +34,7 @@ function EducationBulletForm({
             <option value="">Select Education</option>
             {educations.map((edu, index) => (
               <option key={index} value={index}>
-                {edu.school} - {edu.degree}
+                {edu.university} - {edu.degree}
               </option>
             ))}
           </select>
@@ -65,7 +65,7 @@ function EducationBulletForm({
               edu.bullets &&
               edu.bullets.length > 0 && (
                 <div key={eduIndex} className="experience-bullets">
-                  <h4>{edu.school} - Bullet Points</h4>
+                  <h4>{edu.university} - Bullet Points</h4>
                   <ul>
                     {edu.bullets.map((bullet, bulletIndex) => (
                       <li key={bulletIndex} className="bullet-item">

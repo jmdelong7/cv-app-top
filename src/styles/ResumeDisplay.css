@@ -207,3 +207,20 @@
   line-height: 1.5;
   color: #000000;
 }
+
+/* Skills Section */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.skills-item {
+  margin: 0;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.skills-header {
+  font-weight: 600;
+}
