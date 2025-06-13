@@ -21,6 +21,7 @@
   transition: all 0.3s ease;
   max-width: 8.5in; /* Standard letter width */
   min-height: 12in; /* Standard letter height */
+  overflow-y: auto;
 }
 
 .resume-container.expanded {
@@ -223,4 +224,18 @@
 
 .skills-header {
   font-weight: 600;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .resume-display {
+    max-width: 100%;
+    min-height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .resume-container {
+    max-width: 100%;
+    min-height: auto;
+  }
 }
